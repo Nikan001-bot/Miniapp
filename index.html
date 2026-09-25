@@ -5,59 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V2DEY</title>
 
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0b0b0b;
+      padding: 25px;
+      background: #111;
       color: white;
-      padding: 20px;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     h1 {
-      text-align: center;
-      margin-top: 30px;
-    }
-
-    .subtitle {
-      text-align: center;
-      color: #aaa;
       margin-bottom: 30px;
     }
 
-    .button {
-      display: block;
+    button {
       width: 100%;
-      box-sizing: border-box;
-      padding: 18px;
-      margin: 14px 0;
-      border: 0;
-      border-radius: 15px;
-      background: #1c1c1c;
-      color: white;
-      font-size: 17px;
-      text-align: center;
+      padding: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      font-size: 16px;
+      cursor: pointer;
     }
 
-    .button:active {
-      transform: scale(0.98);
+    .support {
+      background: #222;
+      color: white;
+    }
+
+    #ticketBox {
+      display: none;
+      margin-top: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      box-sizing: border-box;
+      padding: 12px;
+      border-radius: 10px;
+      border: none;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    .send {
+      background: #0088cc;
+      color: white;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>🌐 V2DEY</h1>
+  <h1>V2DEY</h1>
 
-  <div class="subtitle">
-    پنل کاربری
+  <button class="support" onclick="openTicket()">
+    🎫 پشتیبانی
+  </button>
+
+  <div id="ticketBox">
+
+    <h3>ارسال تیکت</h3>
+
+    <textarea id="message" placeholder="مشکل یا پیام خود را بنویسید..."></textarea>
+
+    <button class="send" onclick="sendTicket()">
+      📩 ارسال تیکت
+    </button>
+
   </div>
 
-  <div class="button">📦 سرویس‌های من</div>
+  <script>
 
-  <div class="button">🎫 پشتیبانی</div>
+    const tg = window.Telegram.WebApp;
+    tg.expand();
 
-  <div class="button">🛒 خرید سرویس</div>
+    function openTicket() {
+      document.getElementById("ticketBox").style.display = "block";
+    }
+
+    function sendTicket() {
+
+      const message = document.getElementById("message").value.trim();
+
+      if (!message) {
+        tg.showAlert("لطفاً پیام خود را بنویسید.");
+        return;
+      }
+
+      const data = {
+        type: "ticket",
+        message: message
+      };
+
+      tg.sendData(JSON.stringify(data));
+    }
+
+  </script>
 
 </body>
 </html>
