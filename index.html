@@ -4,110 +4,139 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V2DEY</title>
-  <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
+    * {
+      box-sizing: border-box;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
     body {
       margin: 0;
-      padding: 25px;
-      background: #111;
+      min-height: 100vh;
+      background: #0d0d0d;
       color: white;
-      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 420px;
       text-align: center;
     }
 
-    h1 {
-      margin-bottom: 30px;
+    .card {
+      background: #171717;
+      border: 1px solid #292929;
+      border-radius: 20px;
+      padding: 30px 22px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+    }
+
+    .icon {
+      font-size: 55px;
+      margin-bottom: 15px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
+    p {
+      color: #bdbdbd;
+      line-height: 1.8;
+      font-size: 15px;
+      margin-bottom: 25px;
     }
 
     button {
       width: 100%;
-      padding: 16px;
-      margin: 10px 0;
       border: none;
-      border-radius: 12px;
+      border-radius: 14px;
+      padding: 15px;
       font-size: 16px;
-    }
-
-    .support {
-      background: #222;
+      font-weight: bold;
+      cursor: pointer;
+      background: #229ed9;
       color: white;
     }
 
-    #ticketBox {
+    button:active {
+      transform: scale(0.98);
+    }
+
+    #contactPage {
       display: none;
-      margin-top: 20px;
     }
 
-    textarea {
-      width: 100%;
-      height: 120px;
-      box-sizing: border-box;
-      padding: 12px;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 10px;
-      font-size: 15px;
-    }
-
-    .send {
-      background: #0088cc;
-      color: white;
+    .back {
+      background: #292929;
+      margin-top: 10px;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>V2DEY</h1>
+  <div class="container">
 
-  <button class="support" onclick="openTicket()">
-    🎫 پشتیبانی
-  </button>
+    <!-- صفحه اصلی -->
+    <div class="card" id="homePage">
+      <div class="icon">💬</div>
 
-  <div id="ticketBox">
+      <h2>پشتیبانی V2DEY</h2>
 
-    <h3>ارسال تیکت</h3>
+      <p>
+        برای ارتباط با ادمین و دریافت پشتیبانی،
+        روی دکمه زیر کلیک کنید.
+      </p>
 
-    <textarea
-      id="message"
-      placeholder="مشکل یا پیام خود را بنویسید..."
-    ></textarea>
+      <button onclick="showContact()">
+        ارتباط با ادمین
+      </button>
+    </div>
 
-    <button class="send" onclick="sendTicket()">
-      📩 ارسال تیکت
-    </button>
+
+    <!-- صفحه ارتباط -->
+    <div class="card" id="contactPage">
+      <div class="icon">👨🏻‍💻</div>
+
+      <h2>ارتباط با ادمین</h2>
+
+      <p>
+        برای ارتباط مستقیم با ادمین،
+        روی دکمه زیر کلیک کنید.
+      </p>
+
+      <button onclick="openTelegram()">
+        🔵 ورود به پی‌وی ادمین
+      </button>
+
+      <button class="back" onclick="goBack()">
+        بازگشت
+      </button>
+    </div>
 
   </div>
 
+
   <script>
-
-    const tg = window.Telegram.WebApp;
-
-    tg.expand();
-
-    function openTicket() {
-      document.getElementById("ticketBox").style.display = "block";
+    function showContact() {
+      document.getElementById("homePage").style.display = "none";
+      document.getElementById("contactPage").style.display = "block";
     }
 
-    function sendTicket() {
-
-      const message = document.getElementById("message").value.trim();
-
-      if (!message) {
-        tg.showAlert("لطفاً پیام خود را بنویسید.");
-        return;
-      }
-
-      const data = {
-        type: "ticket",
-        message: message
-      };
-
-      tg.sendData(JSON.stringify(data));
-
+    function goBack() {
+      document.getElementById("contactPage").style.display = "none";
+      document.getElementById("homePage").style.display = "block";
     }
 
+    function openTelegram() {
+      window.location.href = "https://t.me/wl52hz";
+    }
   </script>
 
 </body>
