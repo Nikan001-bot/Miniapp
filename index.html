@@ -21,8 +21,16 @@
 
     body {
       min-height: 100dvh;
+
       background:
-        radial-gradient(circle at 50% 0%, #202020 0%, #0c0c0c 48%, #050505 100%);
+        radial-gradient(
+          circle at 50% 0%,
+          #350000 0%,
+          #150000 28%,
+          #080808 58%,
+          #020202 100%
+        );
+
       color: #fff;
 
       display: flex;
@@ -38,27 +46,37 @@
       overflow: hidden;
     }
 
+    /* نور قرمز بالای صفحه */
     .glow {
       position: fixed;
-      width: 240px;
-      height: 240px;
-      background: rgba(34, 158, 217, 0.12);
-      filter: blur(80px);
+      width: 280px;
+      height: 280px;
+
+      background: rgba(220, 0, 0, 0.18);
+
+      filter: blur(90px);
       border-radius: 50%;
-      top: -80px;
+
+      top: -100px;
       right: -70px;
+
       pointer-events: none;
     }
 
+    /* نور قرمز پایین صفحه */
     .glow2 {
       position: fixed;
-      width: 220px;
-      height: 220px;
-      background: rgba(34, 158, 217, 0.08);
-      filter: blur(80px);
+      width: 240px;
+      height: 240px;
+
+      background: rgba(150, 0, 0, 0.12);
+
+      filter: blur(90px);
       border-radius: 50%;
-      bottom: -80px;
+
+      bottom: -100px;
       left: -70px;
+
       pointer-events: none;
     }
 
@@ -66,90 +84,155 @@
       width: 100%;
       max-width: 390px;
       margin: auto;
+
       position: relative;
       z-index: 2;
     }
 
     .card {
       width: 100%;
-      background: rgba(23, 23, 23, 0.94);
-      border: 1px solid rgba(255,255,255,0.08);
+
+      background: rgba(12, 12, 12, 0.94);
+
+      border: 1px solid rgba(255, 0, 0, 0.18);
+
       border-radius: 26px;
+
       padding: 36px 24px 30px;
+
       text-align: center;
 
       box-shadow:
-        0 20px 60px rgba(0,0,0,0.55),
-        inset 0 1px 0 rgba(255,255,255,0.04);
+        0 25px 70px rgba(0, 0, 0, 0.7),
+        0 0 40px rgba(170, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
+    /* لوگوی وسط */
     .logo {
-      width: 78px;
-      height: 78px;
+      width: 80px;
+      height: 80px;
+
       margin: 0 auto 20px;
 
-      border-radius: 22px;
-      background: linear-gradient(145deg, #222, #101010);
+      border-radius: 23px;
 
-      border: 1px solid rgba(255,255,255,0.08);
+      background:
+        linear-gradient(145deg, #1c1c1c, #070707);
+
+      border: 1px solid rgba(255, 0, 0, 0.25);
 
       display: flex;
       align-items: center;
       justify-content: center;
 
       font-size: 38px;
+
+      box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.6),
+        0 0 25px rgba(200, 0, 0, 0.12);
     }
 
+    /* اسم V2DEY */
     .brand {
-      color: #229ed9;
-      font-size: 13px;
+      color: #ff2020;
+
+      font-size: 14px;
+
       font-weight: bold;
-      letter-spacing: 2px;
+
+      letter-spacing: 3px;
+
       margin-bottom: 10px;
+
+      text-shadow:
+        0 0 12px rgba(255, 0, 0, 0.35);
     }
 
     h2 {
-      font-size: 22px;
+      font-size: 23px;
+
       margin-bottom: 13px;
+
+      color: #fff;
     }
 
     p {
       color: #aaa;
+
       font-size: 14px;
+
       line-height: 2;
-      margin-bottom: 25px;
+
+      margin-bottom: 27px;
     }
 
+    /* دکمه اصلی */
     .btn {
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       width: 100%;
-      min-height: 54px;
+
+      min-height: 56px;
 
       border: none;
-      border-radius: 15px;
 
-      background: linear-gradient(135deg, #229ed9, #168ac1);
+      border-radius: 16px;
 
-      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          #ff1717,
+          #c00000 55%,
+          #8b0000
+        );
+
+      color: #fff;
+
       font-size: 16px;
+
       font-weight: bold;
 
       cursor: pointer;
 
-      box-shadow: 0 10px 25px rgba(34,158,217,0.22);
+      box-shadow:
+        0 10px 30px rgba(220, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+      transition: 0.2s;
     }
 
     .btn:active {
       transform: scale(0.97);
+
+      box-shadow:
+        0 5px 15px rgba(220, 0, 0, 0.2);
     }
 
     .footer {
-      margin-top: 18px;
-      color: #555;
+      margin-top: 19px;
+
+      color: #444;
+
       font-size: 11px;
+    }
+
+    /* خط قرمز ظریف بالای کارت */
+    .line {
+      width: 45px;
+      height: 3px;
+
+      margin: 0 auto 22px;
+
+      border-radius: 10px;
+
+      background: #e00000;
+
+      box-shadow:
+        0 0 12px rgba(255, 0, 0, 0.5);
     }
   </style>
 </head>
@@ -162,6 +245,8 @@
   <div class="container">
 
     <div class="card">
+
+      <div class="line"></div>
 
       <div class="logo">
         👨🏻‍💻
@@ -181,7 +266,7 @@
       </p>
 
       <button class="btn" onclick="openTelegram()">
-        🔵 ورود به پی‌وی ادمین
+        🔴 ورود به پی‌وی ادمین
       </button>
 
       <div class="footer">
