@@ -1,30 +1,353 @@
-<div class="card">
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-  <div class="line"></div>
+  <title>V2DEY VPN</title>
 
-  <div class="logo">
-    👨🏻‍💻
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+    }
+
+    body {
+      min-height: 100dvh;
+
+      background:
+        radial-gradient(
+          circle at 50% 0%,
+          #3a0000 0%,
+          #160000 28%,
+          #080808 58%,
+          #020202 100%
+        );
+
+      color: #fff;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding:
+        calc(20px + env(safe-area-inset-top))
+        20px
+        calc(20px + env(safe-area-inset-bottom))
+        20px;
+
+      overflow: hidden;
+    }
+
+    .glow {
+      position: fixed;
+      width: 280px;
+      height: 280px;
+
+      background: rgba(255, 0, 0, 0.18);
+
+      filter: blur(90px);
+      border-radius: 50%;
+
+      top: -100px;
+      right: -70px;
+
+      pointer-events: none;
+    }
+
+    .glow2 {
+      position: fixed;
+      width: 240px;
+      height: 240px;
+
+      background: rgba(130, 0, 0, 0.15);
+
+      filter: blur(90px);
+      border-radius: 50%;
+
+      bottom: -100px;
+      left: -70px;
+
+      pointer-events: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 390px;
+      margin: auto;
+
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      width: 100%;
+
+      background: rgba(10, 10, 10, 0.95);
+
+      border: 1px solid rgba(255, 0, 0, 0.20);
+
+      border-radius: 27px;
+
+      padding: 36px 24px 29px;
+
+      text-align: center;
+
+      box-shadow:
+        0 25px 70px rgba(0,0,0,0.75),
+        0 0 45px rgba(180,0,0,0.10),
+        inset 0 1px 0 rgba(255,255,255,0.03);
+    }
+
+    .line {
+      width: 50px;
+      height: 3px;
+
+      margin: 0 auto 23px;
+
+      border-radius: 20px;
+
+      background: linear-gradient(
+        90deg,
+        #650000,
+        #ff1515,
+        #650000
+      );
+
+      box-shadow:
+        0 0 15px rgba(255,0,0,0.6);
+    }
+
+    /* آیکون خفن‌تر */
+    .logo {
+      width: 88px;
+      height: 88px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 26px;
+
+      background:
+        radial-gradient(
+          circle at 50% 35%,
+          #2c0000,
+          #111 55%,
+          #050505 100%
+        );
+
+      border: 1px solid rgba(255,0,0,0.30);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 43px;
+
+      box-shadow:
+        0 12px 40px rgba(0,0,0,0.65),
+        0 0 30px rgba(220,0,0,0.14);
+
+      position: relative;
+    }
+
+    .logo::after {
+      content: "";
+      position: absolute;
+
+      width: 10px;
+      height: 10px;
+
+      background: #ff1717;
+
+      border-radius: 50%;
+
+      top: 12px;
+      right: 15px;
+
+      box-shadow:
+        0 0 12px #ff1717;
+    }
+
+    .brand {
+      color: #ff2020;
+
+      font-size: 14px;
+
+      font-weight: bold;
+
+      letter-spacing: 3px;
+
+      margin-bottom: 10px;
+
+      text-shadow:
+        0 0 13px rgba(255,0,0,0.35);
+    }
+
+    h2 {
+      font-size: 23px;
+
+      margin-bottom: 13px;
+
+      color: #fff;
+    }
+
+    p {
+      color: #aaa;
+
+      font-size: 14px;
+
+      line-height: 2;
+
+      margin-bottom: 27px;
+    }
+
+    /* دکمه ترکیبی قرمز و مشکی */
+    .btn {
+      position: relative;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+
+      min-height: 57px;
+
+      border: 1px solid rgba(255,0,0,0.35);
+
+      border-radius: 16px;
+
+      background:
+        linear-gradient(
+          110deg,
+          #050505 0%,
+          #050505 28%,
+          #700000 60%,
+          #e00000 100%
+        );
+
+      color: #fff;
+
+      font-size: 16px;
+
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 30px rgba(190,0,0,0.25),
+        inset 0 1px 0 rgba(255,255,255,0.10);
+
+      transition: 0.2s;
+
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: "";
+
+      position: absolute;
+
+      top: 0;
+      left: -100%;
+
+      width: 70%;
+      height: 100%;
+
+      background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.10),
+        transparent
+      );
+
+      transform: skewX(-20deg);
+
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        left: -100%;
+      }
+
+      55%, 100% {
+        left: 140%;
+      }
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+
+      box-shadow:
+        0 5px 18px rgba(220,0,0,0.25);
+    }
+
+    .footer {
+      margin-top: 19px;
+
+      color: #555;
+
+      font-size: 11px;
+
+      letter-spacing: 1px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="line"></div>
+
+      <div class="logo">
+        👨🏻‍💻
+      </div>
+
+      <div class="brand">
+        V2DEY
+      </div>
+
+      <h2>
+        ارتباط با ادمین
+      </h2>
+
+      <p>
+        برای ارتباط مستقیم با ادمین و دریافت پشتیبانی،
+        روی دکمه زیر کلیک کنید.
+      </p>
+
+      <button class="btn" onclick="openTelegram()">
+        🔴اتصال به پیوی ادمین 🔴
+      </button>
+
+      <div class="footer">
+        V2DEY VPN
+      </div>
+
+    </div>
+
   </div>
 
-  <div class="brand">
-    V2DEY
-  </div>
+  <script>
+    function openTelegram() {
+      window.location.href = "https://t.me/wl52hz";
+    }
+  </script>
 
-  <h2>
-    ارتباط با ادمین
-  </h2>
-
-  <p>
-    برای ارتباط مستقیم با ادمین و دریافت پشتیبانی،
-    روی دکمه زیر کلیک کنید.
-  </p>
-
-  <button class="btn" onclick="openTelegram()">
-    🔴 اتصال به پی‌وی ادمین
-  </button>
-
-  <div class="footer">
-     V2DEY VPN
-  </div>
-
-</div>
+</body>
+</html>
