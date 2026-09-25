@@ -1,14 +1,170 @@
-<div class="card">
-  <div class="icon">👨🏻‍💻</div>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <h2>ارتباط با ادمین</h2>
+  <title>V2DEY | پشتیبانی</title>
 
-  <p>
-    برای ارتباط مستقیم با ادمین،
-    روی دکمه زیر کلیک کنید.
-  </p>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Tahoma, Arial, sans-serif;
+    }
 
-  <button onclick="window.location.href='https://t.me/wl52hz'">
-    🔵 ورود به پی‌وی ادمین
-  </button>
-</div>
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, #202020 0%, #0b0b0b 45%, #050505 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      background: rgba(34, 158, 217, 0.12);
+      filter: blur(80px);
+      border-radius: 50%;
+      top: -80px;
+      right: -60px;
+    }
+
+    .glow2 {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      background: rgba(34, 158, 217, 0.08);
+      filter: blur(80px);
+      border-radius: 50%;
+      bottom: -80px;
+      left: -60px;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 390px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .card {
+      background: rgba(23, 23, 23, 0.88);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 26px;
+      padding: 38px 25px 30px;
+      text-align: center;
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+      backdrop-filter: blur(15px);
+    }
+
+    .logo {
+      width: 82px;
+      height: 82px;
+      margin: 0 auto 22px;
+      border-radius: 24px;
+      background: linear-gradient(145deg, #202020, #101010);
+      border: 1px solid rgba(255,255,255,0.09);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 40px;
+      box-shadow:
+        0 10px 35px rgba(0,0,0,0.45),
+        0 0 30px rgba(34,158,217,0.08);
+    }
+
+    .brand {
+      font-size: 14px;
+      color: #229ed9;
+      letter-spacing: 2px;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    p {
+      color: #a8a8a8;
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 27px;
+    }
+
+    .btn {
+      width: 100%;
+      border: none;
+      border-radius: 16px;
+      padding: 17px 15px;
+      background: linear-gradient(135deg, #229ed9, #168ac1);
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(34,158,217,0.22);
+      transition: 0.2s;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .footer {
+      margin-top: 20px;
+      font-size: 11px;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="glow"></div>
+  <div class="glow2"></div>
+
+  <div class="container">
+
+    <div class="card">
+
+      <div class="logo">👨🏻‍💻</div>
+
+      <div class="brand">V2DEY</div>
+
+      <h2>ارتباط با ادمین</h2>
+
+      <p>
+        برای ارتباط مستقیم با ادمین و دریافت پشتیبانی،
+        روی دکمه زیر کلیک کنید.
+      </p>
+
+      <button class="btn" onclick="openTelegram()">
+        🔵 ورود به پی‌وی ادمین
+      </button>
+
+      <div class="footer">
+        پشتیبانی V2DEY
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    function openTelegram() {
+      window.location.href = "https://t.me/wl52hz";
+    }
+  </script>
+
+</body>
+</html>
