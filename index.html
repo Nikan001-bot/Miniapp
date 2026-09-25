@@ -11,340 +11,189 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: Tahoma, Arial, sans-serif;
-    }
-
-    html, body {
-      width: 100%;
-      min-height: 100%;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, Arial, sans-serif;
     }
 
     body {
       min-height: 100dvh;
-
       background:
-        radial-gradient(
-          circle at 50% 0%,
-          #3a0000 0%,
-          #160000 28%,
-          #080808 58%,
-          #020202 100%
-        );
-
-      color: #fff;
-
+        radial-gradient(circle at top, rgba(150, 0, 0, 0.18), transparent 40%),
+        #050505;
+      color: white;
       display: flex;
       align-items: center;
       justify-content: center;
-
       padding:
-        calc(20px + env(safe-area-inset-top))
+        max(20px, env(safe-area-inset-top))
         20px
-        calc(20px + env(safe-area-inset-bottom))
+        max(20px, env(safe-area-inset-bottom))
         20px;
-
-      overflow: hidden;
-    }
-
-    .glow {
-      position: fixed;
-      width: 280px;
-      height: 280px;
-
-      background: rgba(255, 0, 0, 0.18);
-
-      filter: blur(90px);
-      border-radius: 50%;
-
-      top: -100px;
-      right: -70px;
-
-      pointer-events: none;
-    }
-
-    .glow2 {
-      position: fixed;
-      width: 240px;
-      height: 240px;
-
-      background: rgba(130, 0, 0, 0.15);
-
-      filter: blur(90px);
-      border-radius: 50%;
-
-      bottom: -100px;
-      left: -70px;
-
-      pointer-events: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 390px;
-      margin: auto;
-
-      position: relative;
-      z-index: 2;
     }
 
     .card {
       width: 100%;
-
-      background: rgba(10, 10, 10, 0.95);
-
-      border: 1px solid rgba(255, 0, 0, 0.20);
-
-      border-radius: 27px;
-
-      padding: 36px 24px 29px;
-
-      text-align: center;
-
-      box-shadow:
-        0 25px 70px rgba(0,0,0,0.75),
-        0 0 45px rgba(180,0,0,0.10),
-        inset 0 1px 0 rgba(255,255,255,0.03);
-    }
-
-    .line {
-      width: 50px;
-      height: 3px;
-
-      margin: 0 auto 23px;
-
-      border-radius: 20px;
-
+      max-width: 390px;
       background: linear-gradient(
-        90deg,
-        #650000,
-        #ff1515,
-        #650000
+        145deg,
+        rgba(25, 25, 25, 0.96),
+        rgba(8, 8, 8, 0.98)
       );
-
+      border: 1px solid rgba(255, 0, 0, 0.22);
+      border-radius: 25px;
+      padding: 32px 24px 26px;
+      text-align: center;
       box-shadow:
-        0 0 15px rgba(255,0,0,0.6);
+        0 0 35px rgba(180, 0, 0, 0.14),
+        inset 0 0 25px rgba(255, 0, 0, 0.025);
     }
 
-    /* آیکون خفن‌تر */
-    .logo {
-      width: 88px;
-      height: 88px;
-
-      margin: 0 auto 20px;
-
-      border-radius: 26px;
+    .icon-box {
+      width: 105px;
+      height: 105px;
+      margin: 0 auto 12px;
+      border-radius: 28px;
 
       background:
-        radial-gradient(
-          circle at 50% 35%,
-          #2c0000,
-          #111 55%,
-          #050505 100%
-        );
+        linear-gradient(145deg, #171717, #050505);
 
-      border: 1px solid rgba(255,0,0,0.30);
+      border: 1px solid rgba(255, 0, 0, 0.45);
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      font-size: 43px;
+      font-size: 58px;
 
       box-shadow:
-        0 12px 40px rgba(0,0,0,0.65),
-        0 0 30px rgba(220,0,0,0.14);
+        0 0 25px rgba(255, 0, 0, 0.22),
+        inset 0 0 18px rgba(255, 0, 0, 0.08);
 
       position: relative;
     }
 
-    .logo::after {
+    .icon-box::after {
       content: "";
       position: absolute;
-
-      width: 10px;
-      height: 10px;
-
-      background: #ff1717;
-
+      width: 9px;
+      height: 9px;
+      background: #ff0000;
       border-radius: 50%;
-
-      top: 12px;
+      top: 13px;
       right: 15px;
-
-      box-shadow:
-        0 0 12px #ff1717;
+      box-shadow: 0 0 12px #ff0000;
     }
 
     .brand {
-      color: #ff2020;
-
-      font-size: 14px;
-
-      font-weight: bold;
-
-      letter-spacing: 3px;
-
-      margin-bottom: 10px;
-
-      text-shadow:
-        0 0 13px rgba(255,0,0,0.35);
+      color: #ff1a1a;
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 22px;
+      text-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
     }
 
-    h2 {
-      font-size: 23px;
-
-      margin-bottom: 13px;
-
-      color: #fff;
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin-bottom: 12px;
     }
 
-    p {
-      color: #aaa;
-
+    .description {
+      color: #bdbdbd;
       font-size: 14px;
-
       line-height: 2;
-
-      margin-bottom: 27px;
+      margin-bottom: 25px;
     }
 
-    /* دکمه ترکیبی قرمز و مشکی */
-    .btn {
-      position: relative;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
+    .admin-button {
       width: 100%;
+      min-height: 58px;
 
-      min-height: 57px;
-
-      border: 1px solid rgba(255,0,0,0.35);
-
-      border-radius: 16px;
+      border: 1px solid rgba(255, 0, 0, 0.45);
+      border-radius: 17px;
 
       background:
         linear-gradient(
-          110deg,
+          105deg,
           #050505 0%,
-          #050505 28%,
-          #700000 60%,
-          #e00000 100%
+          #080808 38%,
+          #160000 63%,
+          #b00000 100%
         );
 
-      color: #fff;
+      color: white;
 
-      font-size: 16px;
-
-      font-weight: bold;
+      font-size: 15px;
+      font-weight: 800;
 
       cursor: pointer;
 
       box-shadow:
-        0 10px 30px rgba(190,0,0,0.25),
-        inset 0 1px 0 rgba(255,255,255,0.10);
+        0 8px 25px rgba(0, 0, 0, 0.5),
+        0 0 18px rgba(180, 0, 0, 0.18);
 
-      transition: 0.2s;
-
-      overflow: hidden;
+      transition: 0.2s ease;
     }
 
-    .btn::before {
-      content: "";
-
-      position: absolute;
-
-      top: 0;
-      left: -100%;
-
-      width: 70%;
-      height: 100%;
-
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,0.10),
-        transparent
-      );
-
-      transform: skewX(-20deg);
-
-      animation: shine 3s infinite;
-    }
-
-    @keyframes shine {
-      0% {
-        left: -100%;
-      }
-
-      55%, 100% {
-        left: 140%;
-      }
-    }
-
-    .btn:active {
+    .admin-button:active {
       transform: scale(0.97);
-
-      box-shadow:
-        0 5px 18px rgba(220,0,0,0.25);
     }
 
-    .footer {
-      margin-top: 19px;
+    .note {
+      margin-top: 18px;
+      padding: 13px 14px;
 
-      color: #555;
+      background: rgba(255, 0, 0, 0.045);
+      border: 1px solid rgba(255, 0, 0, 0.13);
+      border-radius: 14px;
 
-      font-size: 11px;
-
-      letter-spacing: 1px;
+      color: #a9a9a9;
+      font-size: 11.5px;
+      line-height: 1.9;
     }
+
+    .note::first-letter {
+      color: #ff1a1a;
+    }
+
   </style>
 </head>
 
 <body>
 
-  <div class="glow"></div>
-  <div class="glow2"></div>
+  <div class="card">
 
-  <div class="container">
+    <div class="icon-box">
+      👨🏻‍💻
+    </div>
 
-    <div class="card">
+    <div class="brand">
+      V2DEY VPN
+    </div>
 
-      <div class="line"></div>
+    <h1>
+      ارتباط با ادمین
+    </h1>
 
-      <div class="logo">
-        👨🏻‍💻
-      </div>
+    <div class="description">
+      برای ارتباط مستقیم با ادمین و دریافت پشتیبانی،
+      روی دکمه زیر کلیک کنید.
+    </div>
 
-      <div class="brand">
-        V2DEY
-      </div>
+    <button class="admin-button" onclick="openAdmin()">
+      🔴اتصال به پیوی ادمین 🔴
+    </button>
 
-      <h2>
-        ارتباط با ادمین
-      </h2>
-
-      <p>
-        برای ارتباط مستقیم با ادمین و دریافت پشتیبانی،
-        روی دکمه زیر کلیک کنید.
-      </p>
-
-      <button class="btn" onclick="openTelegram()">
-        🔴اتصال به پیوی ادمین 🔴
-      </button>
-
-      <div class="footer">
-        V2DEY VPN
-      </div>
-
+    <div class="note">
+      ⚠️ نکته: قبل از ارتباط با پشتیبانی، در صورت متصل نشدن کانفیگ،
+      اپلیکیشن‌های دیگر را نیز امتحان کنید و از وضعیت اتصال اینترنت خود
+      اطمینان حاصل کنید.
     </div>
 
   </div>
 
   <script>
-    function openTelegram() {
+    function openAdmin() {
       window.location.href = "https://t.me/wl52hz";
     }
   </script>
