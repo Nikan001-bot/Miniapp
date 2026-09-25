@@ -71,7 +71,10 @@
 
     <h3>ارسال تیکت</h3>
 
-    <textarea id="message" placeholder="مشکل یا پیام خود را بنویسید..."></textarea>
+    <textarea
+      id="message"
+      placeholder="مشکل یا پیام خود را بنویسید..."
+    ></textarea>
 
     <button class="send" onclick="sendTicket()">
       📩 ارسال تیکت
@@ -82,6 +85,7 @@
   <script>
 
     const tg = window.Telegram.WebApp;
+
     tg.expand();
 
     function openTicket() {
@@ -90,19 +94,34 @@
 
     function sendTicket() {
 
-      const message = document.getElementById("message").value.trim();
+      const message =
+        document.getElementById("message").value.trim();
 
       if (!message) {
         tg.showAlert("لطفاً پیام خود را بنویسید.");
         return;
       }
 
-      const data = {
-        type: "ticket",
-        message: message
-      };
+      fetch(
+        "https://b2-supp.nikanhosseininet.workers.dev/webhook",
+        {
+          method: "POST",
 
-      tg.sendData(JSON.stringify(data));
+          headers: {
+            "Content-Type": "application/json"
+          },
+
+          body: JSON.stringify({
+            type: "ticket",
+            message: message,
+            user_id: tg.initDataUnsafe.user?.id
+          })
+        }
+      );
+
+      tg.showAlert("تیکت با موفقیت ارسال شد ✅");
+
+      document.getElementById("message").value = "";
     }
 
   </script>
