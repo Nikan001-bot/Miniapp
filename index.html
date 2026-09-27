@@ -6,7 +6,6 @@
 
   <title>V2DEY VPN</title>
 
-  <!-- Telegram Mini App -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
   <style>
@@ -45,6 +44,7 @@
       border-radius: 25px;
       padding: 32px 24px 26px;
       text-align: center;
+
       box-shadow:
         0 0 35px rgba(180, 0, 0, 0.14),
         inset 0 0 25px rgba(255, 0, 0, 0.025);
@@ -55,7 +55,9 @@
       height: 105px;
       margin: 0 auto 12px;
       border-radius: 28px;
+
       background: linear-gradient(145deg, #171717, #050505);
+
       border: 1px solid rgba(255, 0, 0, 0.45);
 
       display: flex;
@@ -89,7 +91,9 @@
       font-weight: 800;
       letter-spacing: 1px;
       margin-bottom: 22px;
-      text-shadow: 0 0 12px rgba(255, 0, 0, 0.4);
+
+      text-shadow:
+        0 0 12px rgba(255, 0, 0, 0.4);
     }
 
     h1 {
@@ -105,6 +109,7 @@
       margin-bottom: 25px;
     }
 
+    /* تنظیمات مشترک دکمه‌ها */
     .admin-button,
     .restart-button {
       width: 100%;
@@ -113,18 +118,11 @@
       border: 1px solid rgba(255, 0, 0, 0.45);
       border-radius: 17px;
 
-      background:
-        linear-gradient(
-          105deg,
-          #050505 0%,
-          #080808 38%,
-          #160000 63%,
-          #b00000 100%
-        );
-
       color: white;
+
       font-size: 15px;
       font-weight: 800;
+
       cursor: pointer;
 
       box-shadow:
@@ -134,8 +132,30 @@
       transition: 0.2s ease;
     }
 
+    /* اتصال به ادمین:
+       چپ قرمز ← راست مشکی */
+    .admin-button {
+      background: linear-gradient(
+        105deg,
+        #b00000 0%,
+        #160000 37%,
+        #080808 63%,
+        #050505 100%
+      );
+    }
+
+    /* شروع مجدد:
+       چپ مشکی ← راست قرمز */
     .restart-button {
       margin-top: 12px;
+
+      background: linear-gradient(
+        105deg,
+        #050505 0%,
+        #080808 37%,
+        #160000 63%,
+        #b00000 100%
+      );
     }
 
     .admin-button:active,
@@ -148,10 +168,12 @@
       padding: 13px 14px;
 
       background: rgba(255, 0, 0, 0.045);
+
       border: 1px solid rgba(255, 0, 0, 0.13);
       border-radius: 14px;
 
       color: #a9a9a9;
+
       font-size: 11.5px;
       line-height: 1.9;
     }
@@ -179,7 +201,7 @@
       روی دکمه زیر کلیک کنید.
     </div>
 
-    <!-- ارتباط با ادمین -->
+    <!-- اتصال به ادمین -->
     <button class="admin-button" onclick="openAdmin()">
       🔴اتصال به پیوی ادمین 🔴
     </button>
@@ -199,25 +221,24 @@
 
   <script>
 
-    // اتصال به پیوی ادمین
+    /* اتصال به پیوی ادمین */
     function openAdmin() {
       window.Telegram.WebApp.openTelegramLink(
         "https://t.me/wl52hz"
       );
     }
 
-    // شروع مجدد ربات
+    /* شروع مجدد ربات + بستن Mini App */
     function restartBot() {
 
-      // اول ربات را باز می‌کنیم
       window.Telegram.WebApp.openTelegramLink(
         "https://t.me/v2deyvpnbot?start=restart"
       );
 
-      // سپس Mini App را می‌بندیم
       setTimeout(function () {
         window.Telegram.WebApp.close();
       }, 150);
+
     }
 
   </script>
