@@ -6,6 +6,9 @@
 
   <title>V2DEY VPN</title>
 
+  <!-- Telegram Mini App -->
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
   <style>
     * {
       box-sizing: border-box;
@@ -52,9 +55,7 @@
       height: 105px;
       margin: 0 auto 12px;
       border-radius: 28px;
-
       background: linear-gradient(145deg, #171717, #050505);
-
       border: 1px solid rgba(255, 0, 0, 0.45);
 
       display: flex;
@@ -122,10 +123,8 @@
         );
 
       color: white;
-
       font-size: 15px;
       font-weight: 800;
-
       cursor: pointer;
 
       box-shadow:
@@ -180,12 +179,12 @@
       روی دکمه زیر کلیک کنید.
     </div>
 
-    <!-- دکمه ارتباط با ادمین -->
+    <!-- ارتباط با ادمین -->
     <button class="admin-button" onclick="openAdmin()">
       🔴اتصال به پیوی ادمین 🔴
     </button>
 
-    <!-- دکمه شروع مجدد ربات -->
+    <!-- شروع مجدد ربات -->
     <button class="restart-button" onclick="restartBot()">
       🔄 شروع مجدد ربات
     </button>
@@ -199,13 +198,28 @@
   </div>
 
   <script>
+
+    // اتصال به پیوی ادمین
     function openAdmin() {
-      window.location.href = "https://t.me/wl52hz";
+      window.Telegram.WebApp.openTelegramLink(
+        "https://t.me/wl52hz"
+      );
     }
 
+    // شروع مجدد ربات
     function restartBot() {
-      window.location.href = "https://t.me/v2deyvpnbot?start=restart";
+
+      // اول ربات را باز می‌کنیم
+      window.Telegram.WebApp.openTelegramLink(
+        "https://t.me/v2deyvpnbot?start=restart"
+      );
+
+      // سپس Mini App را می‌بندیم
+      setTimeout(function () {
+        window.Telegram.WebApp.close();
+      }, 150);
     }
+
   </script>
 
 </body>
