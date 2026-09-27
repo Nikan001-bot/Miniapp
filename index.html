@@ -53,8 +53,7 @@
       margin: 0 auto 12px;
       border-radius: 28px;
 
-      background:
-        linear-gradient(145deg, #171717, #050505);
+      background: linear-gradient(145deg, #171717, #050505);
 
       border: 1px solid rgba(255, 0, 0, 0.45);
 
@@ -105,7 +104,8 @@
       margin-bottom: 25px;
     }
 
-    .admin-button {
+    .admin-button,
+    .restart-button {
       width: 100%;
       min-height: 58px;
 
@@ -135,7 +135,12 @@
       transition: 0.2s ease;
     }
 
-    .admin-button:active {
+    .restart-button {
+      margin-top: 12px;
+    }
+
+    .admin-button:active,
+    .restart-button:active {
       transform: scale(0.97);
     }
 
@@ -151,11 +156,6 @@
       font-size: 11.5px;
       line-height: 1.9;
     }
-
-    .note::first-letter {
-      color: #ff1a1a;
-    }
-
   </style>
 </head>
 
@@ -180,8 +180,14 @@
       روی دکمه زیر کلیک کنید.
     </div>
 
+    <!-- دکمه ارتباط با ادمین -->
     <button class="admin-button" onclick="openAdmin()">
       🔴اتصال به پیوی ادمین 🔴
+    </button>
+
+    <!-- دکمه شروع مجدد -->
+    <button class="restart-button" onclick="restartBot()">
+      🔄 شروع مجدد
     </button>
 
     <div class="note">
@@ -195,6 +201,10 @@
   <script>
     function openAdmin() {
       window.location.href = "https://t.me/wl52hz";
+    }
+
+    function restartBot() {
+      window.location.href = "https://t.me/v2deyvpnbot?start=restart";
     }
   </script>
 
